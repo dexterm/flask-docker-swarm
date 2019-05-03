@@ -3,7 +3,7 @@ import logging
 
 from flask import Blueprint, jsonify
 
-from project.api.models import User
+from project.models.user import User
 
 
 users_blueprint = Blueprint('users', __name__)

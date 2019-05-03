@@ -21,3 +21,15 @@ Check out the [post](https://testdriven.io/running-flask-on-docker-swarm).
     ```sh
     $ sh deploy.sh
     ```
+## MODIFIED ORIGINAL BOILERPLATE
+1. Added phpmyadmin support
+    ```sh
+    $ http://localhost:8000 [username: dexterm, password:pythonsecret, database:myproject]
+    ```
+1. Setup database
+    ```sh
+    $ docker exec -it web python manage.py recreate_db
+    ```
+    ```sh
+    $ docker exec -it web python manage.py seed_db
+    ```

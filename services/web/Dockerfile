@@ -19,7 +19,26 @@ FROM python:3.6-slim
 
 # ----- NEW ----
 # Install curl
-RUN apt-get update && apt-get install -y curl
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    mysql-client \
+    python-mysqldb \
+    python3-mysqldb \
+    python3-dev \
+    libpython3-dev \
+    #libmysqlclient-dev \
+    libpng-dev \
+    libjpeg62-turbo-dev \
+    libfreetype6-dev \
+    locales \
+    zip \
+    jpegoptim optipng pngquant gifsicle \
+    vim \
+    unzip \
+    git \
+    curl
+
+#RUN apt-get update && apt-get install -y curl \
 
 # Create directory for the app user
 RUN mkdir -p /home/app
@@ -48,4 +67,5 @@ RUN chown -R app:app $APP_HOME
 USER app
 
 # run server
+RUN ls -l
 CMD gunicorn --log-level=debug -b 0.0.0.0:5000 manage:app
